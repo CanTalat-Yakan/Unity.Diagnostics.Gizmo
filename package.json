@@ -1,7 +1,7 @@
 {
   "name": "com.unityessentials.runtimegizmo",
   "version": "1.0.0",
-  "displayName": "Unity Tools RuntimeGizmo",
+  "displayName": "Unity Systems RuntimeGizmo",
   "description": "This is a part of the UnityEssentials Ecosystem",
   "unity": "6000.0",
   "unityRelease": null,
