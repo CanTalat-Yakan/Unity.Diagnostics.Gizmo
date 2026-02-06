@@ -1,20 +1,20 @@
 {
-  "name": "com.unityessentials.runtimegizmo",
-  "version": "1.0.0",
-  "displayName": "Unity Systems RuntimeGizmo",
+  "name": "com.unityessentials.diagnostics.gizmo",
+  "version": "2.0.0",
+  "displayName": "Diagnostics Gizmo",
   "description": "This is a part of the UnityEssentials Ecosystem",
   "unity": "6000.0",
-  "unityRelease": null,
+  "unityRelease": "",
   "dependencies": {},
   "keywords": [],
   "author": {
     "name": "Unity Essentials",
-    "email": null,
-    "url": null
+    "email": "",
+    "url": ""
   },
-  "documentationUrl": null,
-  "changelogUrl": null,
-  "licensesUrl": null,
+  "documentationUrl": "",
+  "changelogUrl": "",
+  "licensesUrl": "",
   "samples": [],
   "hideInEditor": true
 }
