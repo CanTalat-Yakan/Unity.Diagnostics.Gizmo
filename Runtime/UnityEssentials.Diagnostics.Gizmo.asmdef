@@ -2,8 +2,10 @@
     "name": "UnityEssentials.Diagnostics.Gizmo",
     "rootNamespace": "UnityEssentials",
     "references": [
+        "GUID:75469ad4d38634e559750d17036d5f7c",
         "GUID:da0828d7586ab2507a0fa4326b0cf982",
         "GUID:fd1e7b63e0e7d634db53519cc860fe3a",
+        "GUID:6e0673ce8d7371149ac9c15f75f1b48d",
         "GUID:31005776ba0ea9c4bb2ee78cca2f6886",
         "GUID:dec8fc344c4ac65a382ccf61a3d320fc"
     ],
