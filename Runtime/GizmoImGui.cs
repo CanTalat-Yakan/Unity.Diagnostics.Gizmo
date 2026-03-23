@@ -33,6 +33,8 @@ namespace UnityEssentials
         private static readonly Color s_axisY = new(0.35f, 1f, 0.35f, 0.95f);
         private static readonly Color s_axisZ = new(0.35f, 0.6f, 1f, 0.95f);
 
+        private static int s_lastImGuizmoFrame = -1;
+
         /// <summary>
         /// Draws and applies a native ImGuizmo transform gizmo for the given target.
         /// Returns true if the transform was modified this frame.
@@ -55,6 +57,8 @@ namespace UnityEssentials
             var cam = ImGuiUtilities.ResolveCamera();
             if (cam == null)
                 return false;
+
+            PrepareImGuizmoFrame(cam);
 
             var view = ToFloat16(cam.worldToCameraMatrix);
             var projection = ToFloat16(cam.projectionMatrix);
@@ -288,6 +292,26 @@ namespace UnityEssentials
                 return;
 
             DrawWireBox(renderer.bounds, color, thickness, camera);
+        }
+
+        private static void PrepareImGuizmoFrame(Camera cam)
+        {
+            var ctx = ImGui.GetCurrentContext();
+            if (ctx != IntPtr.Zero)
+                ImGuizmo.SetImGuiContext(ctx);
+
+            if (s_lastImGuizmoFrame != Time.frameCount)
+            {
+                ImGuizmo.BeginFrame();
+                s_lastImGuizmoFrame = Time.frameCount;
+            }
+
+            ImGuizmo.SetDrawlist(ImGui.GetForegroundDrawList());
+            ImGuizmo.SetOrthographic(cam.orthographic);
+
+            ImGuiUtilities.GetDisplaySize(out var width, out var height);
+            ImGuizmo.SetRect(0f, 0f, width, height);
+            ImGuizmo.Enable(true);
         }
 
         private static float[] BuildSnap(
