@@ -306,7 +306,8 @@ namespace UnityEssentials
                 s_lastImGuizmoFrame = Time.frameCount;
             }
 
-            ImGuizmo.SetDrawlist(ImGui.GetForegroundDrawList());
+            // Keep gizmos behind regular ImGui windows/widgets.
+            ImGuizmo.SetDrawlist(ImGui.GetBackgroundDrawList());
             ImGuizmo.SetOrthographic(cam.orthographic);
 
             ImGuiUtilities.GetDisplaySize(out var width, out var height);
@@ -405,7 +406,8 @@ namespace UnityEssentials
             if (cam == null)
                 return false;
 
-            drawList = ImGui.GetForegroundDrawList();
+            // Draw line/shape gizmos in the background layer so ImGui UI is on top.
+            drawList = ImGui.GetBackgroundDrawList();
             screenH = ImGuiUtilities.GetDisplayHeight();
 
             return true;
